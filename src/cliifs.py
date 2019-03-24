@@ -1,6 +1,6 @@
 import IFS
 import PlotWindow
-import sys
+import argparse
 
 class cliifs:
     def __init__(self, filename):
@@ -19,7 +19,10 @@ class cliifs:
         self.window.close()
 
 if __name__ == "__main__":
-    filename = sys.argv[1]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("filename", help="File that you want to render.")
+    args = parser.parse_args()
+    filename = args.filename
     c = cliifs(filename)
     c.generatePoints(300)
     c.showPoints()
