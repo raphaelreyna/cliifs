@@ -21,7 +21,7 @@ class cliifs:
 if __name__ == "__main__":
     filename = sys.argv[1]
     c = cliifs(filename)
-    c.generatePoints(300)
+    c.generatePoints(1000)
     c.showPoints()
     c.close()
 
