@@ -8,6 +8,8 @@ class PlotWindow:
         curses.noecho()
         self.screen.keypad(1)
         self.maxY, self. maxX = self.screen.getmaxyx()
+        self.maxY -= 1
+        self.maxX -= 1
         self.changeOfCoordsFunc = None
         self.updateChangeOfCoordsFunc()
         self.marker = "*"
@@ -59,6 +61,28 @@ class PlotWindow:
         """
         self.addPoints(points)
         self.screen.refresh()
+
+    def printPoints(self, points):
+        self.screen.clear()
+        self.screen.move(0,0)
+        for p in points:
+            msg = "("+str(p[0])+","+str(p[1])+")\n"
+            self.screen.addstr(msg)
+        self.screen.refresh()
+
+    def printConvertedPoints(self, points):
+        self.screen.clear()
+        self.screen.move(0,0)
+        header = "Screen size: "
+        header += ("width: "+str(self.maxX)+" ")
+        header += ("height: "+str(self.maxY)+"\n")
+        self.screen.addstr(header)
+        for p in points:
+            tp = self.changeOfCoordsFunc(p)
+            msg = "("+str(tp[0])+","+str(tp[1])+")\n"
+            self.screen.addstr(msg)
+        self.screen.refresh()
+
 
     def clear(self):
         self.screen.clear()

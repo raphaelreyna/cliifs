@@ -9,13 +9,36 @@ def make1DFuncFromLine(line):
         return (m*p[0]+b, 0.5)
     return f
 
+def make2DFuncFromLine(line):
+    """
+    Makes 2D linear functions in two variables.
+    Functions have the form (a1x+b1y+c1, a2x+b2y+c2)
+    """
+    parts = re.split('\ ', line)
+    a1 = float(parts[0])
+    b1 = float(parts[1])
+    c1 = float(parts[4])
+    a2 = float(parts[2])
+    b2 = float(parts[3])
+    c2 = float(parts[5])
+    def f(p):
+        x = a1*(p[0])+b1*(p[1])+c1
+        y = a2*(p[0])+b2*(p[1])+c2
+        return (x,y)
+    return f
+
 def loadFuncsFromFile(filename):
     f = open(filename, 'r')
     funcs = []
-    if f.readline() == '1D\n':
-        for line in f:
-            func = make1DFuncFromLine(line)
-            funcs.append(func)
+    funcMaker = None
+    head = f.readline()
+    if head == '1D\n':
+        funcMaker = make1DFuncFromLine
+    elif head == '2D\n':
+        funcMaker = make2DFuncFromLine
+    for line in f:
+        func = funcMaker(line)
+        funcs.append(func)
     f.close()
     return funcs
 

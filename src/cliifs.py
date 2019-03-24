@@ -24,7 +24,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     filename = args.filename
     c = cliifs(filename)
-    c.generatePoints(300)
+    c.generatePoints(1000)
     c.showPoints()
     c.close()
 
