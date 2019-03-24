@@ -2,33 +2,27 @@ import curses
 import random
 import time
 import math
-
-def changeCoordsToCentered(y, x, maxX, maxY):
-    return (2*x/maxX-1, 1-2*y/maxY)
+import IFSLoader
+import sys
 
 def changeCoordsToCurses(x, y, maxX, maxY):
-    return (0.5*maxY*(1-y), 0.5*maxX*(x+1))
-
-def f1(x, y):
-    return ((1/3)*(2*x-2), y)
-
-def f2(x, y):
-    return ((1/3)*(2*x-2)+(2/3),y)
+    return (maxY*(1-y), maxX*x)
 
 if __name__ == "__main__":
     stdscr = curses.initscr()
     curses.noecho()
     curses.cbreak()
     stdscr.keypad(1)
-    funcs = [f1, f2]
-    point = (0,0)
+    filename = sys.argv[1]
+    funcs = IFSLoader.loadFuncsFromFile(filename)
+    point = 0
     maxY, maxX = stdscr.getmaxyx()
-    for i in range(1000):
+    for i in range(6000):
         func = random.choice(funcs)
-        point = func(*point)
-        y, x = changeCoordsToCurses(point[0], point[1], maxX, maxY)
+        point = func(point)
+        y, x = changeCoordsToCurses(point, 0.5, maxX-1, maxY-1)
         stdscr.addstr(int(y), int(x), "*")
         stdscr.refresh()
-        time.sleep(0.1)
+    stdscr.getch()
     curses.endwin()
 
