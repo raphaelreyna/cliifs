@@ -1,7 +1,7 @@
 # cliifs
 **Command Line Interface Iterated Function Systems**
 
-Render and view fractals from iterated functions systems right on your terminal.
+Render and view fractals, using the chaos game, from iterated functions systems right on your terminal.
 
 ### Screenshot
 <img width="922" alt="Screen Shot 2019-03-24 at 9 51 06 PM" src="https://user-images.githubusercontent.com/47536723/54895900-039dd800-4e7f-11e9-81d5-3fe82aea4122.png">
