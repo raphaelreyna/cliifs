@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import IFS
 import PlotWindow
 import argparse
@@ -5,13 +7,12 @@ import argparse
 class cliifs:
     def __init__(self, filename):
         self.ifs = IFS.loadIFSFromFile(filename)
-        self.window = None
+        self.window = PlotWindow.PlotWindow()
 
     def generatePoints(self, numberOfIterations):
         self.ifs.update(numberOfIterations)
 
     def showPoints(self):
-        self.window = PlotWindow.PlotWindow()
         self.window.updatePoints(self.ifs.points)
         self.window.waitForKeyPress()
 
@@ -29,10 +30,15 @@ if __name__ == "__main__":
                         action="store",
                         nargs="?",
                         type=int)
+    parser.add_argument("--color",
+                        "-c",
+                        action="store_true")
     args = parser.parse_args()
     filename = args.filename
     iterations = args.iterations
     c = cliifs(filename)
+    if args.color:
+        c.window.color = True
     c.generatePoints(iterations)
     c.showPoints()
     c.close()

@@ -1,9 +1,14 @@
 import curses
 import math
+import random
 
 class PlotWindow:
     def __init__(self):
         self.screen = curses.initscr()
+        curses.start_color()
+        curses.use_default_colors()
+        for i in range(0, curses.COLORS):
+            curses.init_pair(i + 1, i, -1)
         curses.nocbreak()
         curses.noecho()
         self.screen.keypad(1)
@@ -13,6 +18,7 @@ class PlotWindow:
         self.changeOfCoordsFunc = None
         self.updateChangeOfCoordsFunc()
         self.marker = "*"
+        self.color = False
 
     def updateChangeOfCoordsFunc(self):
         def f(p):
@@ -25,7 +31,10 @@ class PlotWindow:
         Point is assumed to be in normalized coordinates.
         """
         p = self.changeOfCoordsFunc(point)
-        self.screen.addstr(int(p[0]), int(p[1]), self.marker)
+        if self.color:
+            self.screen.addstr(int(p[0]), int(p[1]), self.marker, curses.color_pair(random.randint(0, 255)))
+        else:
+            self.screen.addstr(int(p[0]), int(p[1]), self.marker)
 
     def addPoints(self, points):
         """
