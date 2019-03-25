@@ -1,7 +1,10 @@
 # cliifs
 **Command Line Interface Iterated Function Systems**
 
-Render and view fractals from iterated functions systems right on your terminal.
+Render and view fractals, using the chaos game, from iterated functions systems right on your terminal.
+
+### Screenshot
+<img width="922" alt="Screen Shot 2019-03-24 at 9 51 06 PM" src="https://user-images.githubusercontent.com/47536723/54895900-039dd800-4e7f-11e9-81d5-3fe82aea4122.png">
 
 # How To Use
 cliifs reads in a plaintext file that contains the univariate linear functions you wish to use for your IFS.
@@ -27,3 +30,4 @@ Two dimensional Systems are given as a test file whose first line reads simply `
 Each subsequent line has the form `a1 b1 a2 b2 c1 c2` which represents the vector function `f(v) = Av+b`.
 
 In this function, `A` is the matrix with rows `{a1, b1}` and `{a2, b2}`, `b` is the vector `{c1, c2}` and `v` is the position vector `{x,y}`.
+
