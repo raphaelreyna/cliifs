@@ -3,6 +3,7 @@
 import IFS
 import PlotWindow
 import argparse
+import sys
 
 class cliifs:
     def __init__(self, filename):
