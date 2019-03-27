@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import IFS
-import PlotWindow
+from src import IFS
+from src import PlotWindow
 import argparse
 
 class cliifs:
@@ -19,7 +19,7 @@ class cliifs:
     def close(self):
         self.window.close()
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description = "Render fractals in your terminal.")
     parser.add_argument("filename",
                         help="File that you want to render.")
@@ -43,3 +43,5 @@ if __name__ == "__main__":
     c.showPoints()
     c.close()
 
+if __name__ == "__main__":
+    main()

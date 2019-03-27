@@ -1,2 +1,4 @@
 __pycache__
+dist/
+cliifs.egg-info
 .DS_Store
