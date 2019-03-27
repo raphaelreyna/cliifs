@@ -3,10 +3,14 @@
 from src import IFS
 from src import PlotWindow
 import argparse
+import sys
 
 class cliifs:
     def __init__(self, filename):
-        self.ifs = IFS.loadIFSFromFile(filename)
+        try:
+            self.ifs = IFS.loadIFSFromFile(filename)
+        except:
+            sys.exit(-1)
         self.window = PlotWindow.PlotWindow()
 
     def generatePoints(self, numberOfIterations):
