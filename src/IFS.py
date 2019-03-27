@@ -1,5 +1,10 @@
 import re
 from random import choice
+import sys
+
+class FileError(Exception):
+    """The file you have passed is not valid."""
+    pass
 
 def make1DFuncFromLine(line):
     parts = re.split('\ ', line)
@@ -32,14 +37,23 @@ def loadFuncsFromFile(filename):
     funcs = []
     funcMaker = None
     head = f.readline()
-    if head == '1D\n':
-        funcMaker = make1DFuncFromLine
-    elif head == '2D\n':
-        funcMaker = make2DFuncFromLine
-    for line in f:
-        func = funcMaker(line)
-        funcs.append(func)
-    f.close()
+    try:
+        if head == '1D\n':
+            funcMaker = make1DFuncFromLine
+        elif head == '2D\n':
+            funcMaker = make2DFuncFromLine
+        else:
+            raise FileError
+        for line in f:
+            func = funcMaker(line)
+            funcs.append(func)
+    except:
+        print("The file you are trying to use does not contain a valid IFS.")
+        print("Please try again with a valid file.")
+        print("See the documentation for more information on valid files.")
+        sys.exit(-1)
+    finally:
+        f.close()
     return funcs
 
 def loadIFSFromFile(filename):
