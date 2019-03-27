@@ -26,7 +26,7 @@ To render the IFS stored in a file called `exampleFile`, move into the directory
 cliifs accepts the following flags
 * `-h` for help.
 * `-c` to render in random colors.
-* `-l N` to render using N iterations.
+* `-i N` to render using N iterations.
 
 ## 1 Dimensional Systems
 One dimensional systems are given as a test file whose first line reads simply `1D`.
