@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 
-from src import IFS
-from src import PlotWindow
+import IFS
+import PlotWindow
 import argparse
 
 class cliifs:
     def __init__(self, filename):
-        self.ifs = IFS.loadIFSFromFile(filename)
+        try:
+            self.ifs = IFS.loadIFSFromFile(filename)
+        except:
+            print("You have passed an invalid file.")
+            print("Please try again with a valid file.")
+            sys.exit(-1)
         self.window = PlotWindow.PlotWindow()
 
     def generatePoints(self, numberOfIterations):
