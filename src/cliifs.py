@@ -10,6 +10,8 @@ class cliifs:
         try:
             self.ifs = IFS.loadIFSFromFile(filename)
         except:
+            print("You have passed an invalid file.")
+            print("Please try again with a valid file.")
             sys.exit(-1)
         self.window = PlotWindow.PlotWindow()
 
