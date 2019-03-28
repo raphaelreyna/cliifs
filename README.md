@@ -20,7 +20,7 @@ See the included examples for more details.
 ### Invocation example
 To render the IFS stored in a file called `exampleFile`, move into the directory containing cliifs.py and run the command:
 
-`./cliifs.py exampleFile`
+`cliifs exampleFile`
 
 #### Flags 
 cliifs accepts the following flags
