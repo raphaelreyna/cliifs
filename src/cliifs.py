@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from src import IFS
 from src import PlotWindow
 import argparse
