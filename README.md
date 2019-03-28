@@ -3,7 +3,8 @@
 
 Render and view fractals, using the chaos game, from iterated functions systems right on your terminal.
 
-### Screenshot
+### Screenshots
+<img width="983" alt="Screen Shot 2019-03-28 at 9 46 45 AM" src="https://user-images.githubusercontent.com/47536723/55176509-7c7e8780-513e-11e9-8598-cf8afb2a9e4b.png">
 <img width="1280" alt="cliifs" src="https://user-images.githubusercontent.com/47536723/55172096-ba77ad80-5136-11e9-8c2d-49b412cd3711.png">
 <img width="1280" alt="cliifs" src="https://user-images.githubusercontent.com/47536723/55172172-db400300-5136-11e9-9503-1a729f366811.gif">
 
