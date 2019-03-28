@@ -24,7 +24,8 @@ class cliifs:
             if self.signalHandler.terminate_now:
                 return
             self.ifs.update(stepsPerFrame)
-            points = self.ifs.getNewPoints()
+            points = self.ifs.points
+            self.ifs.points = []
             self.window.updateWithPoints(points)
             time.sleep(delay)
         self.window.waitForKeyPress()

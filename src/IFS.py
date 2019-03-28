@@ -115,7 +115,6 @@ class IFS:
         normalizedPoints = self.normalizePoints(generatedPoints)
         self.points += normalizedPoints
 
-
     def getNewPoints(self):
         oldPoints = self.points
         self.points = []
