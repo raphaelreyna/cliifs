@@ -4,7 +4,13 @@
 Render and view fractals, using the chaos game, from iterated functions systems right on your terminal.
 
 ### Screenshot
-<img width="922" alt="Screen Shot 2019-03-24 at 9 51 06 PM" src="https://user-images.githubusercontent.com/47536723/54895900-039dd800-4e7f-11e9-81d5-3fe82aea4122.png">
+<img width="1280" alt="cliifs" src="https://user-images.githubusercontent.com/47536723/55172096-ba77ad80-5136-11e9-8c2d-49b412cd3711.png">
+<img width="1280" alt="cliifs" src="https://user-images.githubusercontent.com/47536723/55172172-db400300-5136-11e9-9503-1a729f366811.gif">
+
+# Installation
+###
+Install via pip with `pip install cliifs` or download the appropriate binary from [releases](https://github.com/raphaelreyna/cliifs/releases/tag/v0.4)
+
 
 # How To Use
 cliifs reads in a plaintext file that contains the univariate linear functions you wish to use for your IFS.
@@ -18,9 +24,9 @@ See below for specifics on how to write these files.
 See the included examples for more details.
 
 ### Invocation example
-To render the IFS stored in a file called `exampleFile`, move into the directory containing cliifs.py and run the command:
+To render, with animation and color, the IFS stored in a file called `exampleFile`, move into the directory containing exampleFile and run the command:
 
-`./cliifs.py exampleFile`
+`cliifs exampleFile -c -a`
 
 #### Flags 
 cliifs accepts the following flags
