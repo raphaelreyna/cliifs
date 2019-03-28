@@ -18,7 +18,7 @@ See below for specifics on how to write these files.
 See the included examples for more details.
 
 ### Invocation example
-To render the IFS stored in a file called `exampleFile`, move into the directory containing cliifs.py and run the command:
+To render the IFS stored in a file called `exampleFile`, simply `cd` into the directory that contains `exampleFile` and run:
 
 `cliifs exampleFile`
 
