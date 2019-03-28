@@ -5,6 +5,7 @@ import PlotWindow
 import argparse
 import sys
 import time
+import SignalHandler
 
 class cliifs:
     """
@@ -18,9 +19,12 @@ class cliifs:
             print("Please try again with a valid file.")
             sys.exit(-1)
         self.window = PlotWindow.PlotWindow()
+        self.signalHandler = SignalHandler.SignalHandler()
 
     def show(self, stepsPerFrame, frameCount=1, delay=0):
         for i in range(frameCount):
+            if self.signalHandler.terminate_now:
+                return
             self.ifs.update(stepsPerFrame)
             points = self.ifs.getNewPoints()
             self.window.updateWithPoints(points)
