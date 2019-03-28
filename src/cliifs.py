@@ -1,9 +1,9 @@
 from src import IFS
 from src import PlotWindow
+from src import SignalHandler
 import argparse
 import sys
 import time
-import SignalHandler
 
 class cliifs:
     """
@@ -24,6 +24,8 @@ class cliifs:
             if self.signalHandler.terminate_now:
                 return
             self.ifs.update(stepsPerFrame)
+            #self.ifs.getNewPoints() is not working in this branch for some reason...
+            # this is the work around.
             points = self.ifs.points
             self.ifs.points = []
             self.window.updateWithPoints(points)

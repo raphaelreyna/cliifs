@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="cliifs",
-    version="0.2",
+    version="0.4",
     packages=find_packages(),
     entry_points={'console_scripts': ['cliifs=src.cliifs:main']},
 
