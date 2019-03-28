@@ -27,6 +27,9 @@ cliifs accepts the following flags
 * `-h` for help.
 * `-c` to render in random colors.
 * `-i N` to render using N iterations.
+* `-a` to animate.
+* `-d D` to delay each frame by D milliseconds if animating.
+* `-m M` to set the collection of markers to be used at random.
 
 ## 1 Dimensional Systems
 One dimensional systems are given as a test file whose first line reads simply `1D`.
