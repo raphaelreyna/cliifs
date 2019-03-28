@@ -5,20 +5,24 @@ import random
 class PlotWindow:
     def __init__(self):
         self.screen = curses.initscr()
-        curses.start_color()
-        curses.use_default_colors()
-        for i in range(0, curses.COLORS):
-            curses.init_pair(i + 1, i, -1)
         curses.nocbreak()
         curses.noecho()
         self.screen.keypad(1)
         self.maxY, self. maxX = self.screen.getmaxyx()
-        self.maxY -= 1
-        self.maxX -= 1
+        self.maxY -= 2
+        self.maxX -= 2
         self.changeOfCoordsFunc = None
         self.updateChangeOfCoordsFunc()
-        self.marker = "*"
         self.color = False
+        self.markers = ["*"]
+        self.marker = random.choice(self.markers)
+
+    def useColor(self):
+        curses.start_color()
+        curses.use_default_colors()
+        for i in range(0, curses.COLORS):
+            curses.init_pair(i + 1, i, -1)
+        self.color = True
 
     def updateChangeOfCoordsFunc(self):
         def f(p):
@@ -35,6 +39,7 @@ class PlotWindow:
             self.screen.addstr(int(p[0]), int(p[1]), self.marker, curses.color_pair(random.randint(0, 255)))
         else:
             self.screen.addstr(int(p[0]), int(p[1]), self.marker)
+        self.marker = random.choice(self.markers)
 
     def addPoints(self, points):
         """
