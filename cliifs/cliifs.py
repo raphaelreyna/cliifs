@@ -1,6 +1,6 @@
-import IFS
-import PlotWindow
-import SignalHandler
+from cliifs import IFS
+from cliifs import PlotWindow
+from cliifs import SignalHandler
 import argparse
 import sys
 import time
