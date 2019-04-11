@@ -14,7 +14,7 @@ class PlotWindow:
         self.changeOfCoordsFunc = None
         self.updateChangeOfCoordsFunc()
         self.color = False
-        self.markers = ["*"]
+        self.markers = "*"
         self.marker = random.choice(self.markers)
 
     def useColor(self):
@@ -36,9 +36,9 @@ class PlotWindow:
         """
         p = self.changeOfCoordsFunc(point)
         if self.color:
-            self.screen.addstr(int(p[0]), int(p[1]), self.marker, curses.color_pair(random.randint(0, 255)))
+            self.screen.addstr(int(p[0]), int(p[1]), random.choice(self.marker), curses.color_pair(random.randint(0, 255)))
         else:
-            self.screen.addstr(int(p[0]), int(p[1]), self.marker)
+            self.screen.addstr(int(p[0]), int(p[1]), random.choice(self.marker))
         self.marker = random.choice(self.markers)
 
     def addPoints(self, points):
