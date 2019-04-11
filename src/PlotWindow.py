@@ -15,7 +15,6 @@ class PlotWindow:
         self.updateChangeOfCoordsFunc()
         self.color = False
         self.markers = "*"
-        self.marker = random.choice(self.markers)
 
     def useColor(self):
         curses.start_color()
