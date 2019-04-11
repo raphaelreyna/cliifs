@@ -1,6 +1,6 @@
-from src import IFS
-from src import PlotWindow
-from src import SignalHandler
+import IFS
+import PlotWindow
+import SignalHandler
 import argparse
 import sys
 import time
@@ -73,7 +73,7 @@ def main():
     args = parser.parse_args()
     filename = args.filename
     iterations = args.iterations
-    markers = args.markers.split()
+    markers = str(args.markers)
     c = cliifs(filename)
     c.window.markers = markers
     if args.color:
